@@ -1,0 +1,40 @@
+{
+  "name": "scientiamobile/imageengine-cdn",
+  "description": "CDN for Shopware 6",
+  "version": "v1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ImageEngine",
+      "role": "Manufacturer"
+    }
+  ],
+  "require": {
+    "shopware/core": "6.5.*"
+  },
+  "extra": {
+    "shopware-plugin-class": "ScientiaMobileImageEngine\\Cdn\\ScientiaMobileImageEngineCdn",
+    "label": {
+      "de-DE": "ImageEngine CDN",
+      "en-GB": "ImageEngine CDN"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://imageengine.io/",
+      "en-GB": "https://imageengine.io/"
+    },
+    "supportLink": {
+      "de-DE": "https://issues.shopware.com/",
+      "en-GB": "https://issues.shopware.com/"
+    },
+    "description": {
+      "de-DE": "CDN für Shopware 6 schreibt URLs für Bilder um, die von einem Content Delivery Network (CDN) bereitgestellt werden sollen. Verbessert die Leistung und Zuverlässigkeit der Website.",
+      "en-GB": "CDN for Shopware 6 rewrites URLs for images to be served by the designated CDN.Improves site performance, reliability, and scalability by offloading the majority of traffic to a CDN"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "ScientiaMobileImageEngine\\Cdn\\": "src/"
+    }
+  }
+}

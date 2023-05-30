@@ -1,0 +1,29 @@
+{
+	"image-engine-cdn-settings": {
+		"label": "ImageEngine CDN",
+		"title": "ImageEngine CDN",
+        "general": {
+            "title": "General",
+            "messageNotBlank": "This value should not be blank.",
+            "activation": {
+                "helpText": "Enable/disable CDN for current sales channel.For the 'All Sales Channels' tab - will be inherited by all sales channels in which the inheritance is enabled (by default)."
+            }
+        },
+		"configs": {
+			"cdnDomain": {
+				"label": "ImageEngine Delivery Address",
+				"placeholder": "aabbcc.cdn.imgeng.in",
+				"helpText": "Enter ImageEngine address from your ImageEngine account. Example: aabbcc.cdn.imgeng.in"
+			},
+			"shopDomain": {
+				"label": "Shop-Domain",
+				"placeholder": "foo.com",
+				"helpText": "Enter the full name of your primary shop domain. This domain is required to generate your media URLS."
+			},
+			"activation": {
+				"title": "Activation settings",
+				"label": "Activate CDN for the current sales channel."
+			}
+		}
+	}
+}

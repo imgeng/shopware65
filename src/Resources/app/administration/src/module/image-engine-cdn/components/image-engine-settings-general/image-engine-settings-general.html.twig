@@ -1,0 +1,102 @@
+{% block image_engine_settings_general %}
+    <div>
+        <sw-card positionIdentifier="ImgEngineSettings" :title="$tc('image-engine-cdn-settings.configs.activation.title')" class="image-engine-settings">
+            {% block image_engine_settings_general_activation %}
+                <sw-inherit-wrapper
+                        v-model="actualConfigData['ScientiaMobileImageEngineCdn.config.isActive']"
+                        :inheritedValue="selectedSalesChannelId === null ? null : allConfigs['null']['ScientiaMobileImageEngineCdn.config.isActive']"
+                        :customInheritationCheckFunction="checkBoolFieldInheritance">
+                    <template #content="props">
+                        <sw-switch-field name="ScientiaMobileImageEngineCdn.config.isActive"
+                                         :mapInheritance="props"
+                                         :label="$tc('image-engine-cdn-settings.configs.activation.label')"
+                                         :disabled="props.isInherited"
+                                         :value="props.currentValue"
+                                         :helpText="$tc('image-engine-cdn-settings.general.activation.helpText')"
+                                         @change="props.updateCurrentValue">
+                        </sw-switch-field>
+                    </template>
+                </sw-inherit-wrapper>
+            {% endblock %}
+        </sw-card>
+        <sw-card positionIdentifier="test" :title="$tc('image-engine-cdn-settings.general.title')" class="image-engine-settings">
+            {% block image_engine_settings_general_cdn_domain %}
+                <sw-inherit-wrapper v-model="actualConfigData['ScientiaMobileImageEngineCdn.config.cdnDomain']"
+                                    :inheritedValue="selectedSalesChannelId === null ? null : allConfigs['null']['ScientiaMobileImageEngineCdn.config.cdnDomain']"
+                                    :customInheritationCheckFunction="checkTextFieldInheritance">
+                    <template #content="props">
+                        {% block image_engine_settings_general_info_block %}
+                            <sw-alert v-if="props.currentValue"
+                                      class="alert"
+                                      variant="success"
+                                      appearance="notification"
+                                      :closable="false">
+                                <p><a href="https://control.imageengine.io/" target="_blank" rel="noopener">ImageEngine Control
+                                        Panel</a></p>
+                                <p>
+                                    <a href="https://support.imageengine.io/?utm_source=shopware-plugin-settigns&utm_medium=page&utm_term=shopware-imageengine&utm_campaign=shopware-imageengine"
+                                       target="_blank" rel="noopener">
+                                        ImageEngine Documentation</a>
+                                </p>
+                            </sw-alert>
+                            <sw-alert v-else
+                                      class="alert"
+                                      variant="info"
+                                      appearance="notification"
+                                      :closable="false">
+                                <div>
+                                    <span>To obtain an ImageEngine Delivery Address:</span></br>
+                                    <span>1.<a :href="originalUrl"
+                                               target="_blank" rel="noopener">Sign up for an ImageEngine account</a></span></br>
+                                    <span>2.Enter the assigned ImageEngine Delivery Address in the "ImageEngine Delivery
+                                        Address"
+                                        option
+                                        below.</span></br>
+                                    <span>See
+                                        <a href="https://support.imageengine.io/hc/en-us/articles/360059238371-Quick-Start/?utm_source=shopware-plugin-settigns&utm_medium=page&utm_term=shopware-imageengine&utm_campaign=shopware-imageengine"
+                                           target="_blank" rel="noopener">
+                                            full documentation
+                                        </a>.
+                                    </span>
+                                </div>
+                            </sw-alert>
+                        {% endblock %}
+                        <sw-field
+                                :label="$tc('image-engine-cdn-settings.configs.cdnDomain.label')"
+                                :helpText="$tc('image-engine-cdn-settings.configs.cdnDomain.helpText')"
+                                :placeholder="$tc('image-engine-cdn-settings.configs.cdnDomain.placeholder')"
+                                type="url"
+                                :map-inheritance="props"
+                                :value="props.currentValue"
+                                :disabled="props.isInherited"
+                                :error="cdnDomainErrorState"
+                                required
+                                name="ScientiaMobileImageEngineCdn.config.cdnDomain"
+                                @input="props.updateCurrentValue"></sw-field>
+                    </template>
+                </sw-inherit-wrapper>
+            {% endblock %}
+            {% block image_engine_settings_general_shop_domain %}
+                <sw-inherit-wrapper v-model="actualConfigData['ScientiaMobileImageEngineCdn.config.shopDomain']"
+                                    :inheritedValue="selectedSalesChannelId === null ? null : allConfigs['null']['ScientiaMobileImageEngineCdn.config.shopDomain']"
+                                    :customInheritationCheckFunction="checkTextFieldInheritance"
+                                    class="hidden">
+                    <template #content="props">
+                        <sw-field
+                                :label="$tc('image-engine-cdn-settings.configs.shopDomain.label')"
+                                :helpText="$tc('image-engine-cdn-settings.configs.shopDomain.helpText')"
+                                :placeholder="$tc('image-engine-cdn-settings.configs.shopDomain.placeholder')"
+                                type="url"
+                                :map-inheritance="props"
+                                :value="homeUrl"
+                                :disabled="props.isInherited"
+                                :error="shopDomainErrorState"
+                                required
+                                name="ScientiaMobileImageEngineCdn.config.shopDomain"
+                                @input="props.updateCurrentValue"></sw-field>
+                    </template>
+                </sw-inherit-wrapper>
+            {% endblock %}
+        </sw-card>
+    </div>
+{% endblock %}

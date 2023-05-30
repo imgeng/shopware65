@@ -1,0 +1,84 @@
+{% block image_engine_settings %}
+    <sw-page class="image-engine-settings">
+        {% block image_engine_settings_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ $tc('sw-settings.index.title') }}
+                    <sw-icon name="regular-chevron-right-xs" small></sw-icon>
+                    {{ $tc('image-engine-cdn-settings.title') }}
+                </h2>
+            </template>
+        {% endblock %}
+        {% block image_engine_settings_actions %}
+            <template #smart-bar-actions>
+                {% block image_engine_settings_actions_save %}
+                    <sw-button-process v-model="isSaveSuccessful"
+                                       class="image-engine-settings-save"
+                                       variant="primary"
+                                       :isLoading="isLoading"
+                                       :disabled="isLoading || hasError"
+                                       @click="onSave">
+                        {{ $tc('global.default.save') }}
+                    </sw-button-process>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block image_engine_settings_content %}
+            <template #content>
+
+
+                {% block image_engine_settings_content_sales_channel_config %}
+                    <sw-sales-channel-config v-model="config"
+                                             ref="configComponent"
+                                             domain="ScientiaMobileImageEngineCdn.config">
+                        {% block image_engine_settings_content_sales_channel_config_channel %}
+                            <template #select="{ onInput, selectedSalesChannelId }">
+                                {% block image_engine_settings_content_sales_channel_config_channel_card %}
+                                    <sw-card positionIdentifier="ImgEngineConfigCard" class="sw-card--grid"
+                                             :title="$tc('global.entities.sales_channel', 2)">
+                                        <div class="card-container image-engine-settings-sales-channel">
+                                            {% block image_engine_settings_content_sales_channel_config_channel_card_select %}
+                                                <sw-single-select v-model="selectedSalesChannelId"
+                                                                  labelProperty="translated.name"
+                                                                  valueProperty="id"
+                                                                  :isLoading="isLoading"
+                                                                  :options="salesChannels"
+                                                                  @change="onInput">
+                                                </sw-single-select>
+                                            {% endblock %}
+                                        </div>
+                                    </sw-card>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+
+                        {% block image_engine_settings_content_sales_channel_configs %}
+                            <template #content="{ actualConfigData, allConfigs, selectedSalesChannelId }">
+                                <div v-if="actualConfigData">
+
+                                    {% block image_engine_settings_content_sales_channel_general %}
+                                        <image-engine-settings-general
+                                                :actualConfigData="actualConfigData"
+                                                :allConfigs="allConfigs"
+                                                :selectedSalesChannelId="selectedSalesChannelId"
+                                                :cdnDomainErrorState="cdnDomainErrorState"
+                                                :shopDomainErrorState="shopDomainErrorState">
+                                        </image-engine-settings-general>
+                                    {% endblock %}
+
+                                </div>
+                            </template>
+                        {% endblock %}
+
+                    </sw-sales-channel-config>
+                {% endblock %}
+
+                {% block image_engine_settings_content_loading %}
+                    <sw-loader v-if="isLoading"></sw-loader>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+    </sw-page>
+{% endblock %}

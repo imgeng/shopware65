@@ -1,0 +1,29 @@
+{
+    "image-engine-cdn-settings": {
+        "label": "ImageEngine CDN",
+        "title": "ImageEngine CDN",
+        "general": {
+            "title": "Allgemein",
+            "messageNotBlank": "Dieser Wert darf nicht leer sein.",
+            "activation": {
+                "helpText": "CDN für den aktuellen Vertriebskanal aktivieren/deaktivieren. Für die Registerkarte „Alle Vertriebskanäle“ – wird von allen Vertriebskanälen übernommen, in denen die Vererbung aktiviert ist (standardmäßig)."
+            }
+        },
+        "configs": {
+            "cdnDomain": {
+                "label": "ImageEngine-Lieferadresse",
+                "placeholder": "aabbcc.cdn.imgeng.in",
+                "helpText": "Geben Sie die ImageEngine-Adresse aus Ihrem ImageEngine-Konto ein. Beispiel:aabbcc.cdn.imgeng.in"
+            },
+            "shopDomain": {
+                "label": "Shop-Domain",
+                "placeholder": "foo.com",
+                "helpText": "Geben Sie den vollständigen Namen Ihrer primären Shop-Domain ein. Diese Domain ist erforderlich, um Ihre Medien-URLs zu generieren."
+            },
+            "activation": {
+                "title": "Aktivierungseinstellungen",
+                "label": "CDN für den aktuellen Vertriebskanal aktivieren."
+            }
+        }
+    }
+}

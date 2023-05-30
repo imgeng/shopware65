@@ -1,0 +1,28 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+
+ {% block layout_head_meta_tags %}
+     {{ parent() }}
+     {% block image_engine_cdn_meta_tag %}
+         {% set ImageEngineCdnDomain = config('ScientiaMobileImageEngineCdn.config.cdnDomain') %}
+         {% if ImageEngineCdnDomain %}
+             <meta http-equiv="delegate-ch" content="
+                ect {{ ImageEngineCdnDomain }};
+                sec-ch-width {{ ImageEngineCdnDomain }};
+                sec-ch-viewport-width {{ ImageEngineCdnDomain }};
+                sec-ch-dpr {{ ImageEngineCdnDomain }};
+                sec-ch-ua-bitness {{ ImageEngineCdnDomain }};
+                sec-ch-ua-arch {{ ImageEngineCdnDomain }};
+                sec-ch-ua-model {{ ImageEngineCdnDomain }};
+                sec-ch-ua-platform {{ ImageEngineCdnDomain }};
+                sec-ch-ua-platform-version {{ ImageEngineCdnDomain }};
+                sec-ch-ua-full-version {{ ImageEngineCdnDomain }};
+                sec-ch-ua-full-version-list {{ ImageEngineCdnDomain }}">
+             <link rel="preconnect" href="{{ ImageEngineCdnDomain }}">
+         {% endif %}
+     {% endblock %}
+ {% endblock %}
+
+
+
+
+

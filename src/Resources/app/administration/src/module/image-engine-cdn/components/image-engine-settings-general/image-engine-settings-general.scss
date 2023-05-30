@@ -1,0 +1,31 @@
+fieldset {
+  border: 1px solid #d1d9e0;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  legend {
+    padding: 0 10px;
+  }
+}
+
+.image-engine-settings {
+  .sw-card__content {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .alert {
+      margin: 30px 0;
+      font-size: 14px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
