@@ -28,7 +28,7 @@ class MediaSubscriberTest extends TestCase
 
     public function testCdnUrlCorrectFromConfig(): void
     {
-        $url = $this->systemConfigService->get('ScientiaMobileImageEngineCdn.config', Defaults::SALES_CHANNEL);
+        $url = $this->systemConfigService->get('ScientiaMobileImageEngineCdn.config', null);
 
         static::assertTrue($this->checkUrl($url));
     }
