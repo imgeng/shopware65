@@ -1,7 +1,7 @@
 {
   "name": "scientiamobile/imageengine-cdn",
   "description": "CDN for Shopware 6",
-  "version": "v2.0.0",
+  "version": "v3.0.0",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "authors": [
@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "shopware/core": "6.5.*"
+    "shopware/core": "6.6.*"
   },
   "extra": {
     "shopware-plugin-class": "ScientiaMobileImageEngine\\Cdn\\ScientiaMobileImageEngineCdn",
