@@ -43,6 +43,10 @@ class MediaSubscriber implements EventSubscriberInterface
         // getting config
         $pluginConfig = $this->systemConfigService->get('ScientiaMobileImageEngineCdn.config');
 
+        if (is_null($pluginConfig)) {
+            return;
+        }
+
         // getting sales channel config
         if (method_exists($event->getContext()->getSource(), 'getSalesChannelId')) {
             $salesChannelId = $event->getContext()->getSource()->getSalesChannelId();
