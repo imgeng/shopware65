@@ -69,7 +69,7 @@ Component.register('image-engine-settings-general', {
              */
             for (const [key, defaultValue] of Object.entries(defaultConfigs)) {
                 if (this.allConfigs['null'][configPrefix + key] === undefined) {
-                    this.$set(this.allConfigs['null'], configPrefix + key, defaultValue);
+                    this.allConfigs['null'][configPrefix + key] = defaultValue;
                 }
             }
         },
