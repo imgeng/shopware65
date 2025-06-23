@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "shopware/core": "6.6.*"
+    "shopware/core": "6.7.*"
   },
   "extra": {
     "shopware-plugin-class": "ScientiaMobileImageEngine\\Cdn\\ScientiaMobileImageEngineCdn",
